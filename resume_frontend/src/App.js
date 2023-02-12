@@ -1,25 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { removePost } from './redux/actions';
+
+
+function mapStateToProps(state) {
+  return {
+    resumes: state
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators( {removePost}, dispatch );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li>Dashboard</li>
+            <li>Online Resume</li>
+            <li>My Videos</li>
+          </ul>
+          <ul>
+            <li>My Account</li>
+            <li>Log out</li>
+          </ul>
+        </nav>
       </header>
+      <main>
+        Main content
+      </main>
+      <footer>
+        Footer
+      </footer>
     </div>
   );
-}
+};
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
