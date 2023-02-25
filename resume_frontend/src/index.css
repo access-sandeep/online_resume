@@ -90,6 +90,25 @@ header p {
   margin-right: 5px;
 }
 
+.site-nav li:last-child {
+  float: right;
+  max-width: 15%;
+}
+
+.site-nav li:last-child > a{
+  background-color: transparent;
+  background-image: url(../public/images/logout.png);
+  background-repeat: no-repeat;
+  content: " ";
+  height: 15px;
+  background-size: contain;
+}
+
+
+.site-nav li:last-child > a > span{
+  display: none;
+}
+
 .site-nav a {
   display: block;
   color: #FFF;
@@ -101,30 +120,43 @@ header p {
   background-color: #4e5a33;
 }
 
+
+
 @media screen and (max-width: 700px) {
   
   .site-nav li {
-    width: 33.332%;
-    margin-right: 0;
+    float: none;
+    width: 100%;
   }
   
+  .site-nav li:last-child {
+    float: none;
+    max-width: 100%;
+  }
+
   .site-nav a {
     padding: 15px 0;
     margin-right: 5px;
     margin-bottom: 5px;
     text-align: center;
   }
-  
-}
 
-@media screen and (max-width: 480px) {
-  
-  .site-nav li {
-    width: 50%;
+
+  .site-nav li:last-child > a{
+    background-color: #536036;
+    background-repeat: no-repeat;
+    background-image: none;
+    content: "Logout";
+    color: white;
+    height: 15px;
+    background-size: contain;
+  }
+
+  .site-nav li:last-child > a > span{
+    display: inline;
   }
   
 }
-
 
 
 /* End Site Navigation */
@@ -169,7 +201,6 @@ header p {
   .main-area {
     padding-right: 0;
   }
-  
 }
 
 
@@ -210,4 +241,13 @@ footer {
 
 .group {
   zoom: 1;
+}
+
+.active a {
+  background-color: #efeedb;
+  color: #536036;
+}
+
+.active a:hover {
+  background-color: #d6d6c7;
 }
