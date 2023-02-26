@@ -8,6 +8,7 @@ import Index from './Components/Partials/Index';
 import Current from './Components/Partials/Current';
 import Noresume from './Components/Partials/Noresume';
 import Loggingout from './Components/Partials/Loggingout';
+import UploadForm from './Components/Partials/UploadForm';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { removePost } from './redux/actions';
@@ -30,7 +31,7 @@ function App() {
       <div className="content-area group">
         <div className="container">
           <Routes>
-             <Route exact path="/current" element={<Current />} />
+             <Route exact path="/current" element={<UploadForm />} />
              <Route path="/upload" element={<Index />} />
              <Route path="/data" element={<Noresume />} />
              <Route path="/logout" element={<Loggingout />} />
