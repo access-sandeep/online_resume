@@ -1,10 +1,13 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import logo from './logo.svg';
-import './App.css';
-import Header from './Header';
-import Footer from './Footer';
-import Index from './Pages/Index';
-import Current from './Pages/Current';
-import Noresume from './Pages/Noresume';
+import Header from './Components/Global/Header';
+import Footer from './Components/Global/Footer';
+import Aside from './Components/Global/Aside'
+import Index from './Components/Partials/Index';
+import Current from './Components/Partials/Current';
+import Noresume from './Components/Partials/Noresume';
+import Loggingout from './Components/Partials/Loggingout';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { removePost } from './redux/actions';
@@ -24,7 +27,17 @@ function App() {
   return (
     <div>
       <Header />
-      <Index />
+      <div className="content-area group">
+        <div className="container">
+          <Routes>
+             <Route exact path="/current" element={<Current />} />
+             <Route path="/upload" element={<Index />} />
+             <Route path="/data" element={<Noresume />} />
+             <Route path="/logout" element={<Loggingout />} />
+           </Routes>
+          <Aside />
+        </div>
+      </div>
       <Footer />
     </div>
   );
